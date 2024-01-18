@@ -8,8 +8,4 @@ public interface BaseCRUDResource<T extends BaseBean> {
 
     ApiResponse get(Integer id);
 
-    ApiResponse edit(T bean);
-
-    ApiResponse delete(Integer id);
-
 }

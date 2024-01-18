@@ -19,6 +19,15 @@ public class CarBean extends BaseBean {
         this.price = price;
     }
 
+    public CarBean(Integer id, String name, String color, Integer userId, Integer price, Boolean isInStore) {
+        this.id = id;
+        this.name = name;
+        this.color = color;
+        this.userId = userId;
+        this.price = price;
+        this.isInStore = isInStore;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -31,16 +40,8 @@ public class CarBean extends BaseBean {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getColor() {
         return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public Integer getUserId() {
@@ -59,7 +60,7 @@ public class CarBean extends BaseBean {
         this.price = price;
     }
 
-    public Boolean getInStore() {
+    public Boolean isInStore() {
         return isInStore;
     }
 
@@ -73,7 +74,7 @@ public class CarBean extends BaseBean {
         if (isInStore) store = "In Store";
         else store = "not In Store";
         return "Car Info: [" +
-                "id=" + id +
+                "id=" + getId() +
                 ", car-owner-id=" + userId +
                 ", name='" + name + '\'' +
                 ", color='" + color + '\'' +

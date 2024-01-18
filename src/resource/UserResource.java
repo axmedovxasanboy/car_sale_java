@@ -17,19 +17,14 @@ public class UserResource implements BaseCRUDResource<UserBean> {
         return null;
     }
 
-    @Override
-    public ApiResponse edit(UserBean bean) {
-        return null;
-    }
-
-    @Override
-    public ApiResponse delete(Integer id) {
-        return null;
+    public ApiResponse edit(UserBean bean, String newUsername, String newPassword) {
+        Boolean isChanged = DataBase.edit(bean, newUsername, newPassword);
+        return isChanged ? new ApiResponse(200, "Successfully changed", true) :
+                new ApiResponse(400, "Error occurred", false);
     }
 
     public ApiResponse login(UserBean bean) {
         UserBean user = DataBase.getUser(bean.getUsername(), bean.getPassword());
-
         return user == null ? new ApiResponse(400, "Error", null) :
                 new ApiResponse(200, "Successfully logged in", user);
     }
