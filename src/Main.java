@@ -193,7 +193,7 @@ public class Main {
             int id = scannerNum.nextInt();
             if (id == -1) return;
             CarResource resource = new CarResource();
-            System.out.println(resource.buyCar(id));
+            System.out.println(DataBase.getChosenCar(id));
             System.out.print("Do you really want to buy this car? y/n\n>>> ");
             String answer = scannerStr.nextLine();
             if (answer.equals("n")) return;

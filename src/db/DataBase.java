@@ -119,16 +119,6 @@ public class DataBase {
         return carList;
     }
 
-    public static Boolean edit(UserBean user, String newUsername, String newPassword) {
-        for (UserBean userBean : users) {
-            if (userBean.getUsername().equals(user.getUsername()) && !userBean.getId().equals(user.getId()))
-                return false;
-        }
-        if (!newUsername.isBlank()) user.setUsername(newUsername);
-        if (!newPassword.isBlank()) user.setPassword(newPassword);
-        return true;
-    }
-
     public static List<CarBean> carsInStore(Integer userId) {
         List<CarBean> carList = new ArrayList<>();
         for (CarBean car : cars) {
@@ -137,6 +127,16 @@ public class DataBase {
             }
         }
         return carList;
+    }
+
+    public static Boolean edit(UserBean user, String newUsername, String newPassword) {
+        for (UserBean userBean : users) {
+            if (userBean.getUsername().equals(user.getUsername()) && !userBean.getId().equals(user.getId()))
+                return false;
+        }
+        if (!newUsername.isBlank()) user.setUsername(newUsername);
+        if (!newPassword.isBlank()) user.setPassword(newPassword);
+        return true;
     }
 
     public static Boolean takeCar(int carId, Integer userId) {

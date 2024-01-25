@@ -40,10 +40,6 @@ public class CarResource implements BaseCRUDResource<CarBean> {
                 new ApiResponse(400, "Error occurred", false);
     }
 
-    public CarBean buyCar(Integer carId) {
-        return DataBase.getChosenCar(carId);
-    }
-
     public ApiResponse getCarsNotInStore(Integer userId) {
         List<CarBean> cars = DataBase.carsNotInStore(userId);
         return cars.isEmpty() ? new ApiResponse(400, "Empty List!", null) :
